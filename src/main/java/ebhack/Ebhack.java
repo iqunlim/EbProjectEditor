@@ -16,6 +16,7 @@ public class Ebhack {
     public static MainGUI main;
     
 	public static void main(String[] args) {
+        testingfailure
         main = new MainGUI();
         if (args.length >= 1) {
             main.init(args[0]);
