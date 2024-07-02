@@ -24,11 +24,11 @@ jobs:
     - name: Test and build Maven project
       run: mvn --batch-mode --update-snapshots verify --file pom.xml
     - name: Upload build artifact
-      run: mkdir staging && cp target/*-jar-with-dependencies.jar staging
+      run: mkdir staging && cp target/*-jar-with-dependencies.jar staging/EbProjectEditor.jar
     - uses: actions/upload-artifact@v4
       with:
        name: EbProjectEditor
-       path: staging
+       path: target
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --follow-symlinks
