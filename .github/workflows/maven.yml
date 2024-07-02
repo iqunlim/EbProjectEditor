@@ -28,15 +28,14 @@ jobs:
       run: mkdir staging && cp target/*-jar-with-dependencies.jar staging
     - uses: actions/upload-artifact@v4
       with:
-       name: Build
+       name: EbProjectEditor
        path: staging
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
-        AWS_S3_BUCKET: 'ebprojed-us-west-1'
+        AWS_S3_BUCKET: 'test0bucket-234234'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-west-1'
+        AWS_REGION: 'us-east-2'
         SOURCE_DIR: 'staging'
-      
